@@ -6,6 +6,7 @@ import static org.junit.Assert.assertEquals;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.bson.Document;
 import org.junit.After;
@@ -19,7 +20,7 @@ import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 
 /**
- * MongoDB 连接插入查询
+ * MongoDB 连接/插入/查询
  * @author Jude
  *
  */
@@ -128,6 +129,13 @@ public class TestMongo {
 			cursor.close();
 		}
 		assertEquals(2, i);
+	}
+	
+	/**
+	 * 最长查询时间, 额, 这个case 要怎么写?
+	 */
+	public void testMaxTime(){
+		collection.find().maxTime(1, TimeUnit.SECONDS).first();
 	}
 
 	@After

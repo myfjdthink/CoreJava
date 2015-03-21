@@ -1,0 +1,24 @@
+apply plugin: 'war'
+apply plugin: 'jetty'
+apply plugin: 'eclipse-wtp'
+
+eclipse {
+    classpath {
+       downloadSources=true
+    }
+}
+
+repositories {
+   maven { url "http://maven.oschina.net" }
+   mavenCentral()
+}
+
+dependencies {
+   providedCompile 'javax.servlet:servlet-api:2.5'
+   runtime 'javax.servlet:jstl:1.1.2'
+   
+   testCompile ('junit:junit:4.12')
+   
+   compile('org.mongodb:mongo-java-driver:3.0.0-rc0')
+   
+}

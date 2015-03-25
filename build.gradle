@@ -20,5 +20,6 @@ dependencies {
    testCompile ('junit:junit:4.12')
    
    compile('org.mongodb:mongo-java-driver:3.0.0-rc0')
+   compile('com.alibaba:druid:1.0.13')
    
 }
